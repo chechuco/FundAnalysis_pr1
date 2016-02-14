@@ -1,11 +1,12 @@
 library(shiny)
 library(ggplot2)
+library(googleVis)
 
 # Modificar
 function(input, output) {
   
   dataset <- reactive({
-    diamonds[sample(nrow(diamonds), input$sampleSize),]
+    Products[sample(nrow(Funds), input$sampleSize),]
   })
   
   output$plot <- renderPlot({

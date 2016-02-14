@@ -1,17 +1,21 @@
 library(shiny)
 library(ggplot2)
+library(googleVis)
 
-# Modificar
-dataset <- diamonds
+#Get data
+Products <- read.csv("ProductFeatures_pr1.csv", header=FALSE)
+colnames(Products) <- c("Product", "AssetClass_1", "AssetClass_2", "Type", "Currency", "IsComplex", "TER")
+
+dataset <- Products
 
 fluidPage(
   
-  titlePanel("Diamonds Explorer"),
+  titlePanel("Funds Analysis"),
   
   sidebarPanel(
     
     sliderInput('sampleSize', 'Sample Size', min=1, max=nrow(dataset),
-                value=min(1000, nrow(dataset)), step=500, round=0),
+                value=min(19, nrow(dataset)), step=5, round=0),
     
     selectInput('x', 'X', names(dataset)),
     selectInput('y', 'Y', names(dataset), names(dataset)[[2]]),
