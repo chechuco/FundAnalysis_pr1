@@ -3,7 +3,7 @@ library(googleVis)
 shinyServer(function(input, output) {
    assetClass_2Input <- reactive({
      switch(input$assetClass_2,
-        "All" = Products,
+        "All" = Products[!duplicated(Products),],
         "Short term" = Products[Products$AssetClass_2 == "RF Corto plazo",],
         "Corporate" = Products[Products$AssetClass_2 == "RF Corporativa",],
         "Flexible EUR" = Products[Products$AssetClass_2 == "RF Flexible EUR",],
