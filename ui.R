@@ -1,10 +1,11 @@
 library(shiny)
 library(googleVis)
 
-# Get data (run in local computer)
-Products <- read.csv("FundAnalysis_pr1.csv", header=FALSE, na.strings = c("N/A", "\\N"))
-colnames(Products) <- c("Fecha", "ISIN", "Product", "AssetClass_2", "Currency", "Price", "AuM", "SPX", "US10Y")
-Products$Fecha <- as.Date(Products$Fecha)
+# Get data
+#Products <- read.csv("FundAnalysis_pr1.csv", header=FALSE, na.strings = c("N/A", "\\N"))
+#colnames(Products) <- c("Fecha", "ISIN", "Product", "AssetClass_2", "Currency", "Price", "AuM", "SPX", "US10Y")
+#Products$Fecha <- as.Date(Products$Fecha)
+source("getData.R")
 
 shinyUI(pageWithSidebar(
   headerPanel("PIMCO Fixed Income Funds Explorer"),
@@ -13,6 +14,9 @@ shinyUI(pageWithSidebar(
         choices = c("All", "Short term", "Corporate", "Flexible EUR", "Flexible others", "High Yield", "Emerging", "Others"))
     ),
     mainPanel(
-      htmlOutput("view")
+      tabsetPanel(
+        tabPanel(htmlOutput("view")),
+        tabPanel("Readme", includeHTML("Help.html"))
+      )  
     )
 ))
