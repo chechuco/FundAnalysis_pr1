@@ -1,0 +1,7 @@
+This is a mock-up for an financial app, showing the evolution of 15 fixed income investments funds managed by PIMCO, since october 2008 to january 2016.
+
+You can start with the default configuration, and then click the triangle in the left-bottom to see how the data change along the years. Then, you can click the arrows arround the plot to change the items represented, so you can explore the potencial effect of several factors such as the S&P Index (SPX) and the evolution of long term bonds in EEUU (US10Y), and the relationship among them and the price and size of the funds.
+
+You may also select others characteristics of the funds, such as sub-asset class, currency o name.
+
+Please find the app files in https://github.com/chechuco/FundAnalysis_pr1.git.
